@@ -4,20 +4,17 @@
  *  Template Name: Builder
  *
  *
-*/
+ */
 
 
- get_header(); ?>
+get_header('builder'); ?>
 
 <main class="main">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="">
                 <?php while ( have_posts() ): the_post(); ?>
                     <article id="entry-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?>>
-                        <h1 class="section-title">
-                            <?php the_title(); ?>
-                        </h1>
 
                         <?php if ( has_post_thumbnail() && get_post_meta( get_the_ID(), 'brittany_hide_featured', true ) != 1 ) : ?>
                             <div class="entry-thumb">
@@ -44,13 +41,9 @@
                             </div>
                         <?php endif; ?>
 
-                        <?php comments_template(); ?>
+                        <?php // comments_template(); ?>
                     </article>
                 <?php endwhile; ?>
-            </div>
-
-            <div class="col-md-4">
-                <?php get_sidebar(); ?>
             </div>
 
             <?php get_template_part( 'part-prefooter' ); ?>
